@@ -21,5 +21,7 @@ add database information to allow Laravel to connect to the database
 php artisan migrate
 
 create a roles:
+
 php artisan permission:create-role manager
+
 php artisan permission:create-role driver
