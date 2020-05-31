@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+
+Route::resource('car', 'CarController', [
+    'except' => [ 'show', 'delete' ]
+]);
+
+Route::resource('carpark', 'CarParkController', [
+    'except' => [ 'show' ]
+]);
+
+Route::delete('car/{car}', 'CarController@destroy')->name('car.destroy')->middleware('role:manager');
+
+Route::get('/home', 'HomeController@index')->name('home');
